@@ -5,7 +5,6 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  // Retornar JSON si el cliente solicita explícitamente application/json
   if (req.headers.accept && req.headers.accept.includes('application/json')) {
     return res.status(200).json({
       status: 'success',
@@ -13,7 +12,6 @@ app.get('/', (req, res) => {
     });
   }
 
-  // Página Web HTML limpia y sencilla
   res.status(200).send(`
     <!DOCTYPE html>
     <html lang="es">
